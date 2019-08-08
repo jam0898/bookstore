@@ -1,0 +1,352 @@
+body {
+    overflow-x: hidden;
+}
+/* navigation */
+.hamburger-menu {
+    width: 65px;
+    height: 65px;
+    background: #7f7b82;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 200;
+    border-radius: 50%;
+    outline: none!important;
+    transition: all .5s;
+}
+.line1,
+.line2,
+.line3 {
+    width: 30px;
+    height: 2px;
+    background: #eee;
+    margin: 5px;
+    transition: all .5s;
+}
+.bg-cover {
+    background: rgb(35, 37,  40, .98);
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    z-index: 100;
+    border-radius: 50%;
+    transition: all .5s;
+}
+.change .line1 {
+    transform: rotate(-405deg) translate(-5px, 5px);
+    background: #777;
+}
+/* ung .change na yan class yan para matawag sa javascript */
+.change .line2 {
+    opacity: 0;
+}
+.change .line3 {
+    transform: rotate(405deg) translate(-5px, -5px);
+    background: #777;
+}
+
+.change .hamburger-menu {
+    background: #eef0eb;
+}
+.change .bg-cover {
+    transform: scale(150);
+}
+.nav-content {
+    position: fixed;
+    z-index: 150;
+    width: 100%;
+}
+.link-item {
+    font-size: 20px;
+    color: #eee;
+    border-bottom: 1px solid #eee;
+}
+/* ginamitan ng borderradius para pag hinover mo sa link-item magkakaroon ng parang arc. */
+.link-item:hover {
+    color: #fff;
+    border-bottom: 1px solid #eee;
+    border-radius: 50% 50% 0 0;
+    background: rgba(5, 4, 4, 0.3);
+}
+.srch {
+    color: #fff;
+    outline: none;
+    font-size: 25px; 
+}
+/* END OFnavigation */
+/* header */
+header {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .7),rgba(0, 0, 0, .8)), url(../img/header-bg.jpeg) fixed center no-repeat /cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+.banner-heading::first-letter {
+    font-family: 'Great Vibes', cursive;
+    font-size: 10rem;
+    margin-right: 20px;
+}
+.banner-heading img {
+    /* eto yung dahilan kung bakit nagbibeat yung puso. ALAMIN SAN NAKUHA YUNG
+    ANIMATION NA BEATING */
+    /* -	Ung animation ng css keyframes yung ginamit bakit tumitibok yung puso sa bookstore
+-	Ginamitan ng keyframes sa css tas pinangalanan nating beating para obvious na sa puso yon. So, para mukha talaga syang tumitibok, 
+need nating mabago yung itsura nya I mean need natin itransform yuing appearance nya, 
+    in css we use scale to change the appearance of the image. So first sa una in 0% of the image, kailangan maliit muna, 
+    then in 40% percent need  nya lumaki ng kaonti, 
+    in 60% medyo pinalaki uli, tas sa 80% yung scale nya same sa 40% 
+    pera mukha talaganng nagbebeat tas sa 100% balik na sa unang scale nya. 
+-	Para maging surebol na ma gagalaw na talaga, call the parent element which is the banner-heading class tas img para maidentify na image yung need ayusin.
+-	Doon sa loob ng bracket, dun napapsok yung partner ng keyframes which is yung animation: (name) beating (duration) 2s (iteration count)infinite;
+ */
+    animation: beating 2s infinite;
+}
+@keyframes beating {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1.05)
+    }
+    
+    80% {
+        transform: scale(1.1)
+    }
+    
+    100% {
+        transform: scale(1)
+    }
+}
+/* end of header */
+
+/* common-title */
+.common-title {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px #aaa;
+    transition: all .5s;
+}
+.common-title:first-letter {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    margin-right: 10px;
+    font-style: normal;
+}
+.common-title:hover {
+    transform: translate(-5px, -3px);
+    text-shadow: 2px 5px 20px #aaa;
+}
+/* end of common-title */
+
+/* GALLERY */
+.gallery-img {
+    backface-visibility: hidden;
+    transition: all .5s;
+}
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.first-row {
+    transform: translateX(-300px);
+    opacity: 0;
+    transition: all 2.5s;
+}
+.second-row {
+    transform: translateX(300px);
+    opacity: 0;
+    transition: all 2.5s;
+}
+.change .first-row,
+.change .second-row {
+    transform:  translateX(0);
+    opacity: 1;
+}
+/* END OF GALLERY */
+
+/* famous writers */
+.famous-writers {
+     background:linear-gradient(rgba(250, 250, 250, .8), rgba(250, 250, 250, .9)), url(../img/writers-bg.jpeg) fixed center no-repeat /cover;
+}
+/* end offamous writers */
+
+/* suggested books */
+.suggested-books {
+    height: 100vh;
+    background: url(../img/wood-bg.jpeg) center no-repeat /cover; 
+}
+.books {
+    position: relative;
+    height: 50vh;
+}
+.book {
+    width: 35%;
+    position: absolute;
+    box-shadow: 5px 5px 15px #444;
+    border-right: 5px solid #777;
+    border-bottom: 10px solid #444;
+    transition: all .7s ease-in-out;
+}
+.book-1 {
+    top: 5%;
+    left: 20%;
+    transform: rotate(-45deg);
+}
+.book-2 {
+    top: 20%;
+    left: 50%;
+    transform: rotate(40deg);
+}
+.book-3 {
+    top: 40%;
+    left: 40%;
+    transform: rotate(55deg);
+}
+.book-4 {
+    top: 35%;
+    left: 10%;
+    transform: rotate(-38deg);
+}
+.book:hover {
+    transform: scale(1.3) rotateX(20deg);
+    z-index: 50;
+    box-shadow: 5px 5px 25px #444;
+    border-right: 10px solid #ddd;
+    border-bottom: 20px solid #bbb;
+}
+/* end of suggested books */
+
+/* popularbooks */
+.popular-books {
+    position: relative;
+}
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: .4;
+}
+.bg-video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.book-card {
+    position: relative;
+    box-shadow: 5px 15px 50px #aaa;
+    max-width: 420px;
+    /* kaya nawala yung excess transition pag hinohover yung card. */
+    overflow: hidden;
+    transition: all .8s;
+}
+.rotate {
+    perspective: 100rem;
+}
+.back {
+    position: absolute;
+    top: -100%;
+    background-color: #fefefe;
+    height: 100%;
+    width: 100%;
+    /* para mahide kungnasan talaga yung price card */
+    opacity: 0;
+    cursor: pointer;
+    /* para di na point or magcursor point yung mouse once na natapat 
+    yung cursor sa pinaglalagyan nya. nasa top kasi sya ng book */
+    user-select: none;
+    pointer-events: none;
+    /* para kapag hinover sya magiging normal yung text nya. */
+    transform: rotateY(180deg);
+    transition: all .8s, opacity .4s;
+}
+.back-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.rotate:hover
+.book-card {
+    /* para maging mirror yung text nya kapag lalabas na yuing
+    backcontent or yung price. */
+    transform: rotateY(180deg);
+}
+.rotate:hover 
+.back {
+    opacity: 1;
+    top: 0;
+
+    user-select: auto;
+    pointer-events: auto;
+    
+}
+/* end of popularbooks */
+
+/* contact section */
+.contact {
+    background: linear-gradient(rgba(0, 0, 0, .7),rgba(0, 0, 0, .8)), url(../img/header-bg.jpeg) fixed center no-repeat /cover;
+}
+.items-wrapper {
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .6)), url(../img/items-wrapper-bg.jpg) center no-repeat /cover;
+    border-radius: 5px;
+}
+/* sa pagfloat yung sa tabi ng contacts*/
+.floating-item {
+    background: rgba(0, 0, 0, .65);
+    border-radius: 5px;
+}
+/* conntectedLinkedIn */
+.first-item { 
+    animation: float 15s infinite;
+}
+/* facebook */
+.second-item {
+    animation: float 20s ease-in infinite;
+}
+/* newbooks */
+.third-item {
+    animation: float 40s linear infinite;
+}
+/* buy now */
+.fourth-item {
+    animation: float 30s infinite;
+}
+/* readonline */
+.fifth-item {
+    animation: float 25s ease-in-out infinite;
+}
+/* para magfloat yung mga  */
+@keyframes float {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-60px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.contact-form input ,
+.contact-form textarea {
+
+    background: transparent;
+    font-size: 18px;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: rgba(250, 250, 250, .8);
+    box-shadow: none;
+}
+/* end of contact section */
